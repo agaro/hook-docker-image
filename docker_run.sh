@@ -79,7 +79,7 @@ if [ -z "$IMAGE_NAME" ]; then
     echo "
 INFO: Using '$IMAGE_NAME' as the Docker image name.
     You can specify a different name at (in order of priority):
-    - the 2nd argument of this script '$0';
+    - the 3nd argument of this script '$0';
     - the IMAGE_NAME enviroment variables;
     - the .env file as the variable mentioned above."
 fi
@@ -89,7 +89,7 @@ if [ -z "$CONTAINER_NAME" ]; then
         echo \
             "INFO: Using '$CONTAINER_NAME' as the Docker container name.
     You can specify a different name at (in order of priority):
-    - the 3nd argument of this script '$0';
+    - the 4nd argument of this script '$0';
     - the CONTAINER_NAME environment variable;
     - the .env file with a CONTAINER_NAME variable."
 fi

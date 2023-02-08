@@ -63,7 +63,7 @@ if [ -z "$IMAGE_NAME" ]; then
     echo \
         "INFO: Using '$IMAGE_NAME' as the Docker image name.
     You can specify a different name at (in order of priority):
-    - the 2nd argument of this script '$0 <Dockerfile|extension> [image_name]';
+    - the 3nd argument of this script '$0 <Dockerfile|extension> [image_name]';
     - the IMAGE_NAME enviroment variable;
     - the .env file with a IMAGE_NAME variable."
 fi

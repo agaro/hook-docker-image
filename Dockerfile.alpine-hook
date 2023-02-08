@@ -8,16 +8,12 @@
 # testing the Hook language.
 #
 FROM alpine:latest as base
-
 LABEL maintainer="Fábio de Souza Villaça Medeiros <fabiosvm@outlook.com>"
 LABEL description="Hook Development Docker Image using Alpine Linux"
 LABEL version="0.1.0"
-
 ENV USER hook
 ENV HOME /home/hook
-
 WORKDIR $HOME
-
 RUN \
   apk update; \
   apk add --no-cache \
@@ -31,7 +27,7 @@ RUN \
   linux-headers \
   make \
   openssh \
-  # TODO Use doas instead of sudo. I counldn't make doas to work.
+  # TODO Use doas instead of sudo. I was unable make doas to work.
   sudo \
   sqlite-dev; \
   echo "%wheel ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers; \
@@ -43,6 +39,7 @@ RUN \
   echo "$USER:$USER" | chpasswd; \
   chown -R $USER:users $HOME; \ 
   chmod -R u+wr,g+rw $HOME;
+
 
 
 # Development image
@@ -76,6 +73,8 @@ ENV HOOK_HOME "/usr/local/hook"
 ENV PATH "$HOOK_HOME/bin:/home/hook/bin:$PATH"
 ENV HOOK_WORKSPACE $HOME/hook-development
 USER $USER:users
+
+
 
 # Development image
 #   It creates a container for running the Hook language examples.
